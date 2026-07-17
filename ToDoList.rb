@@ -28,7 +28,8 @@ loop do
   puts "Select an option:"
   puts "1. Add a task"
   puts "2. View tasks"
-  puts "3. Exit"
+  puts "3. Remove a task"
+  puts "4. Exit"
 
   menu = gets.chomp.to_i
 
@@ -47,12 +48,30 @@ loop do
         puts "#{index + 1}. #{task}"
       end
     end
-
   when 3
+    if tasks.empty?
+      puts "You have no tasks to remove."
+      next
+    end
+
+    tasks.each_with_index do |task, index|
+      puts "#{index + 1}. #{task}"
+    end
+
+    print "Enter the number of the task you want to delete: "
+    task_number = gets.chomp.to_i
+
+    if task_number.between?(1, tasks.length)
+      removed_task = tasks.delete_at(task_number - 1)
+      puts "Removed: #{removed_task}"
+    else
+      puts "Invalid task number."
+    end
+  when 4
     puts "Goodbye!"
     break
 
   else
-    puts "Invalid option. Please choose 1, 2, or 3."
+    puts "Invalid option. Please choose 1, 2, 3 or 4."
   end
 end
