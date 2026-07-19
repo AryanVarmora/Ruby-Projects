@@ -15,19 +15,14 @@ while count < 100
     guess = Integer(input)
   rescue ArgumentError
     puts "Please enter a valid whole number.".red
-
-    # Restart the while loop here
     next
   end
 
   unless guess.between?(1, 100)
     puts "Your number must be between 1 and 100.".red
-
-    # Restart the while loop here
     next
   end
 
-  # Increase the count only after the input is valid
   count +=1
 
   if guess == random_number
@@ -35,7 +30,6 @@ while count < 100
 
     puts "Correct! You found the number in #{count} guesses."
 
-    # Stop the while loop
     break
   elsif guess < random_number
     puts "Your guess was too low."
@@ -44,7 +38,6 @@ while count < 100
   end
 end
 
-# Show this only when the user did not win
 unless guessed_correctly
   puts "Sorry, you ran out of guesses.".red
   puts "The number was #{random_number}."

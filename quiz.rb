@@ -65,7 +65,7 @@ questions.each_with_index do |q, index|
   puts "Question #{index + 1}: #{q[:text]}"
 
   q[:options].each do |option|
-    puts #{option.upcase
+    puts #{option.upcase}
   end
   answer = q[:answer]
   user_answer = nil
