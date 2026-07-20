@@ -87,7 +87,6 @@ loop do
   puts "5. Exit"
 
   menu = gets.chomp.to_i
-
   case menu
   when 1
     puts "Please Enter the following information"
